@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tab Tidy</title>
+    <meta name="manifest.type" content="browser_action" />
+  </head>
+  <body>
+    <main class="stack">
+      <header class="row">
+        <h1 class="grow">Tab Tidy</h1>
+        <button id="settings" type="button" class="link">Settings</button>
+      </header>
+
+      <button id="tidy" type="button" class="primary">Tidy all windows</button>
+      <p id="shortcut" class="muted"></p>
+
+      <div aria-live="polite">
+        <p id="summary">Group tabs in every window by site and close duplicates.</p>
+        <p id="timing" class="muted"></p>
+      </div>
+
+      <div class="row">
+        <button id="undo" type="button" class="grow" disabled>Undo</button>
+        <button id="sleep" type="button" class="grow">Sleep idle tabs</button>
+      </div>
+
+      <p id="ai-hint" class="muted" hidden>
+        The AI check is off. Tabs are grouped by site and by your learned rules.
+        <button id="ai-settings" type="button" class="link">Add an API key</button>
+      </p>
+
+      <p id="notice" class="notice" role="status" hidden>
+        <span id="notice-text"></span>
+        <button id="notice-action" type="button" class="link" hidden>Undo</button>
+      </p>
+
+      <section class="stack">
+        <h2>Saved sessions</h2>
+        <p class="muted">Saves the tabs and groups in this window.</p>
+        <form id="save-form" class="row">
+          <input id="session-name" class="grow" placeholder="Session name" maxlength="60" aria-label="Session name" />
+          <button type="submit">Save</button>
+        </form>
+        <ul id="sessions" class="sessions"></ul>
+        <p id="no-sessions" class="muted">No saved sessions yet.</p>
+      </section>
+    </main>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

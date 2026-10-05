@@ -1,0 +1,45 @@
+body {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+p,
+ul {
+  margin: 0;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+#idle-minutes {
+  width: 80px;
+}
+
+.row {
+  flex-wrap: wrap;
+}
+
+.rules {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rules li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 6px 8px;
+}
+
+.rules .grow {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}

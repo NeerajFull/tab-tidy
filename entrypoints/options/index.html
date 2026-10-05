@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tab Tidy settings</title>
+    <meta name="manifest.open_in_tab" content="true" />
+  </head>
+  <body>
+    <main class="stack">
+      <h1>Tab Tidy settings</h1>
+
+      <section class="stack">
+        <h2>AI check</h2>
+        <p>
+          After each tidy, Claude Opus 5.5 looks at the site groups and moves tabs that belong with another group, for
+          example a Grafana dashboard of Jira bugs into the Atlassian group. Paste your own Anthropic API key. Each tidy
+          sends one request. Without a key, tabs are grouped by site and by your learned rules only.
+        </p>
+        <form id="key-form" class="row">
+          <input
+            id="api-key"
+            class="grow"
+            type="password"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="sk-ant-…"
+            aria-label="Anthropic API key"
+          />
+          <button type="submit">Save key</button>
+          <button id="remove-key" type="button" class="danger">Remove</button>
+        </form>
+        <p id="key-status" class="muted" role="status"></p>
+      </section>
+
+      <section class="stack">
+        <h2>Learned rules</h2>
+        <p>
+          Drag a tab into another site's group, for example a Grafana tab into the Atlassian group. Tab Tidy remembers
+          it, and later tidies put that site's tabs in that group. Drag a tab back to its own site's group to forget
+          the rule.
+        </p>
+        <ul id="rules" class="rules"></ul>
+        <p id="no-rules" class="muted">No rules yet.</p>
+      </section>
+
+      <section class="stack">
+        <h2>Sleep idle tabs</h2>
+        <form id="idle-form" class="row">
+          <label for="idle-minutes">Sleep tabs not used for</label>
+          <input id="idle-minutes" type="number" min="5" max="1440" step="5" required />
+          <span>minutes</span>
+          <button type="submit">Save</button>
+        </form>
+        <p id="idle-status" class="muted" role="status"></p>
+      </section>
+
+      <section class="stack">
+        <h2>Privacy</h2>
+        <ul>
+          <li>Without an API key, nothing leaves the browser.</li>
+          <li>
+            With a key, only tab titles, site paths and group names go to Claude. Query strings and #fragments are
+            removed first.
+          </li>
+          <li>Requests go straight from your browser to api.anthropic.com. There is no Tab Tidy server.</li>
+          <li>Your key and your rules are stored only in this browser profile. They are not synced.</li>
+          <li>Pinned tabs and tabs in a call or playing audio are never grouped, closed, or put to sleep.</li>
+          <li>Saved sessions stay on this device.</li>
+        </ul>
+      </section>
+    </main>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
