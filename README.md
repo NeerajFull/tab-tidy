@@ -6,6 +6,8 @@ Staging and live copies of a site share one group. Drag a tab into another site'
 
 Works in Chrome, Edge and Firefox 139+. Safari is not supported, because Safari extensions cannot create tab groups.
 
+**Download and install:** https://neerajfull.github.io/tab-tidy/
+
 ## How it works
 
 1. **Grouping.** Tabs are grouped in the browser in a few milliseconds, one group per site. Groups need at least 2 tabs. Some apps span several sites and get one group each:
@@ -65,6 +67,18 @@ Load a build by hand:
 - **Firefox:** open `about:debugging#/runtime/this-firefox`, click **Load Temporary Add-on**, and select `.output/firefox-mv3/manifest.json`.
 
 Then open **Settings** from the popup and paste an Anthropic API key (`sk-ant-…`). Without a key, tabs are grouped by site and by your learned rules only.
+
+## Release
+
+1. Change `version` in `package.json` (for example `0.2.0`) and commit.
+2. Tag the commit and push the tag:
+
+   ```bash
+   git tag v0.2.0
+   git push origin v0.2.0
+   ```
+
+The `Release` workflow tests and builds the extension, then creates a GitHub Release with `tab-tidy-chrome.zip`, `tab-tidy-edge.zip` and `tab-tidy-firefox.zip`. The download page in `docs/` links to the latest release, so it needs no change.
 
 ## Known limits
 

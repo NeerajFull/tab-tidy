@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tab Tidy Privacy Policy</title>
+    <meta name="description" content="What Tab Tidy stores, what it sends, and where." />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='5' width='26' height='6' rx='3' fill='%232f6fde'/%3E%3Crect x='3' y='13' width='18' height='6' rx='3' fill='%231f845a'/%3E%3Crect x='3' y='21' width='22' height='6' rx='3' fill='%238f5bd6'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="wrap top">
+      <a class="brand" href="./">
+        <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true">
+          <rect x="3" y="5" width="26" height="6" rx="3" fill="var(--g-blue)" />
+          <rect x="3" y="13" width="18" height="6" rx="3" fill="var(--g-green)" />
+          <rect x="3" y="21" width="22" height="6" rx="3" fill="var(--g-purple)" />
+        </svg>
+        Tab Tidy
+      </a>
+      <nav>
+        <a href="./#install">Install</a>
+        <a href="https://github.com/NeerajFull/tab-tidy">GitHub</a>
+      </nav>
+    </header>
+
+    <main class="wrap prose">
+      <h1>Privacy policy</h1>
+      <p class="updated">Last updated 5 October 2026</p>
+
+      <p>
+        Tab Tidy is a browser extension that groups tabs, closes duplicate tabs, and saves sessions. This page says what
+        data Tab Tidy uses, where the data goes, and how to remove it.
+      </p>
+
+      <h2>Summary</h2>
+      <ul>
+        <li>There is no Tab Tidy server. The developer does not receive any of your data.</li>
+        <li>Without an Anthropic API key, no data leaves your browser.</li>
+        <li>With your own API key, a short list of open tabs goes to Anthropic after each tidy.</li>
+        <li>Tab Tidy does not use analytics, tracking or advertising.</li>
+      </ul>
+
+      <h2>Data stored on your device</h2>
+      <p>Tab Tidy stores this data in the extension storage of your browser profile:</p>
+      <ul>
+        <li>Your settings, such as the idle time for sleeping tabs.</li>
+        <li>Your Anthropic API key, if you add one.</li>
+        <li>The grouping rules that Tab Tidy learns when you drag tabs between groups.</li>
+        <li>Your saved sessions: the tab addresses, titles and group names of the windows you save.</li>
+      </ul>
+      <p>
+        This data stays in your browser profile. It is not synced to other devices. To remove it, delete the rules or
+        sessions in Settings, or remove the extension.
+      </p>
+
+      <h2>Data sent to Anthropic</h2>
+      <p>
+        This section applies only if you add your own Anthropic API key in Settings. After each tidy, Tab Tidy sends one
+        request from your browser directly to <code>api.anthropic.com</code>, so that Claude can move related tabs into
+        the same group. The request contains:
+      </p>
+      <ul>
+        <li>The first 80 characters of each tab title.</li>
+        <li>The site name and the first 60 characters of the path of each tab. Query strings and <code>#fragments</code> are not sent.</li>
+        <li>The names of the tab groups.</li>
+      </ul>
+      <p>
+        The request is billed to your API key. Anthropic handles this data under its own terms and privacy policy. To stop
+        sending data, delete the key in Settings.
+      </p>
+      <p>Incognito and private windows are never included.</p>
+
+      <h2>Permissions</h2>
+      <ul>
+        <li><code>tabs</code>: to read tab addresses and titles, and to close duplicate tabs.</li>
+        <li><code>tabGroups</code>: to create and name tab groups.</li>
+        <li><code>storage</code>: to keep your settings, rules and sessions.</li>
+      </ul>
+      <p>Tab Tidy does not ask for access to the content of web pages.</p>
+
+      <h2>Changes and contact</h2>
+      <p>
+        Changes to this policy are published on this page and in the
+        <a href="https://github.com/NeerajFull/tab-tidy">source code repository</a>. For questions, open an issue on
+        <a href="https://github.com/NeerajFull/tab-tidy/issues">GitHub</a>.
+      </p>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <span>Tab Tidy is free and open source.</span>
+        <span><a href="./">Home</a> · <a href="https://github.com/NeerajFull/tab-tidy">Source code</a></span>
+      </div>
+    </footer>
+  </body>
+</html>

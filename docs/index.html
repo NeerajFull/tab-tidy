@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tab Tidy</title>
+    <meta
+      name="description"
+      content="One click groups your tabs by site, closes duplicates, and saves sessions. Free for Chrome, Edge and Firefox."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='5' width='26' height='6' rx='3' fill='%232f6fde'/%3E%3Crect x='3' y='13' width='18' height='6' rx='3' fill='%231f845a'/%3E%3Crect x='3' y='21' width='22' height='6' rx='3' fill='%238f5bd6'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="wrap top">
+      <a class="brand" href="./">
+        <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true">
+          <rect x="3" y="5" width="26" height="6" rx="3" fill="var(--g-blue)" />
+          <rect x="3" y="13" width="18" height="6" rx="3" fill="var(--g-green)" />
+          <rect x="3" y="21" width="22" height="6" rx="3" fill="var(--g-purple)" />
+        </svg>
+        Tab Tidy
+      </a>
+      <nav>
+        <a href="#install">Install</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="https://github.com/NeerajFull/tab-tidy">GitHub</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="wrap hero">
+        <h1>Tidy every tab in one click.</h1>
+        <p class="lede">
+          Tab Tidy groups your tabs by site, closes duplicates, and saves sessions you can open again later. You can
+          undo every action.
+        </p>
+        <div class="cta">
+          <a class="btn" id="download" href="https://github.com/NeerajFull/tab-tidy/releases/latest/download/tab-tidy-chrome.zip">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16" />
+            </svg>
+            <span id="download-label">Download for Chrome</span>
+          </a>
+          <div class="meta">
+            <span id="version">Free and open source</span> · Also for
+            <span id="other-browsers">
+              <a href="https://github.com/NeerajFull/tab-tidy/releases/latest/download/tab-tidy-edge.zip">Edge</a> and
+              <a href="https://github.com/NeerajFull/tab-tidy/releases/latest/download/tab-tidy-firefox.zip">Firefox</a>
+            </span>
+          </div>
+        </div>
+
+        <div class="strip" aria-hidden="true">
+          <div class="group" style="--c: var(--g-blue)">
+            <span class="label">GitHub</span><span class="tab"></span><span class="tab"></span><span class="tab hide-sm"></span>
+          </div>
+          <div class="group" style="--c: var(--g-green)">
+            <span class="label">Atlassian</span><span class="tab"></span><span class="tab"></span><span class="tab hide-sm"></span>
+          </div>
+          <div class="group" style="--c: var(--g-purple)">
+            <span class="label">Figma</span><span class="tab"></span><span class="tab hide-sm"></span>
+          </div>
+          <div class="group hide-sm" style="--c: var(--g-orange)">
+            <span class="label">youtube.com</span><span class="tab"></span><span class="tab"></span>
+          </div>
+        </div>
+      </div>
+
+      <section>
+        <div class="wrap">
+          <h2>What it does</h2>
+          <p class="sub">Click the icon or press <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>G</kbd>. Every window is tidied in a few milliseconds.</p>
+          <div class="features">
+            <div class="feature">
+              <h3>Groups by site</h3>
+              <p>One named group per site, such as GitHub, Figma or youtube.com. Jira and Confluence share one Atlassian group.</p>
+            </div>
+            <div class="feature">
+              <h3>Staging joins live</h3>
+              <p>Tabs on staging, dev or QA copies of a site go into the same group as the live site.</p>
+            </div>
+            <div class="feature">
+              <h3>Closes duplicates</h3>
+              <p>Finds the same page open twice, in any window, and closes the extra copy. Tracking parameters are ignored.</p>
+            </div>
+            <div class="feature">
+              <h3>Learns your moves</h3>
+              <p>Drag a tab into another site's group once. Tab Tidy remembers it and puts that site there every time.</p>
+            </div>
+            <div class="feature">
+              <h3>Saves sessions</h3>
+              <p>Save the tabs and groups of a window under a name. Open them again in a new window when you need them.</p>
+            </div>
+            <div class="feature">
+              <h3>Optional Claude check</h3>
+              <p>Add your own Anthropic API key, and Claude moves related tabs into the right group. Without a key, nothing leaves the browser.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="install">
+        <div class="wrap">
+          <h2>Install</h2>
+          <p class="sub">Takes about a minute.</p>
+
+          <p class="notice">
+            Tab Tidy is not in the browser extension stores yet, so you install it in developer mode. It does not update
+            automatically. To get a new version, come back to this page.
+          </p>
+
+          <div class="tabs" role="tablist">
+            <button role="tab" id="tab-chrome" aria-controls="panel-chrome" aria-selected="true">Chrome</button>
+            <button role="tab" id="tab-edge" aria-controls="panel-edge" aria-selected="false">Edge</button>
+            <button role="tab" id="tab-firefox" aria-controls="panel-firefox" aria-selected="false">Firefox</button>
+          </div>
+
+          <div class="panel" id="panel-chrome" role="tabpanel" aria-labelledby="tab-chrome">
+            <ol class="steps">
+              <li>Download <a href="https://github.com/NeerajFull/tab-tidy/releases/latest/download/tab-tidy-chrome.zip">tab-tidy-chrome.zip</a>.</li>
+              <li>
+                Unzip it, and move the <strong>tab-tidy-chrome</strong> folder to a place where it can stay, such as
+                Documents. Chrome loads the extension from this folder. If you delete the folder, the extension stops working.
+              </li>
+              <li>
+                Open
+                <span class="copy"><code>chrome://extensions</code><button type="button" data-copy="chrome://extensions">Copy</button></span>
+                in a new tab.
+              </li>
+              <li>Turn on <strong>Developer mode</strong> in the top-right corner.</li>
+              <li>Click <strong>Load unpacked</strong> and select the <strong>tab-tidy-chrome</strong> folder.</li>
+              <li>Click the puzzle icon in the toolbar and pin Tab Tidy.</li>
+            </ol>
+          </div>
+
+          <div class="panel" id="panel-edge" role="tabpanel" aria-labelledby="tab-edge" hidden>
+            <ol class="steps">
+              <li>Download <a href="https://github.com/NeerajFull/tab-tidy/releases/latest/download/tab-tidy-edge.zip">tab-tidy-edge.zip</a>.</li>
+              <li>
+                Unzip it, and move the <strong>tab-tidy-edge</strong> folder to a place where it can stay, such as
+                Documents. Edge loads the extension from this folder. If you delete the folder, the extension stops working.
+              </li>
+              <li>
+                Open
+                <span class="copy"><code>edge://extensions</code><button type="button" data-copy="edge://extensions">Copy</button></span>
+                in a new tab.
+              </li>
+              <li>Turn on <strong>Developer mode</strong> in the left sidebar.</li>
+              <li>Click <strong>Load unpacked</strong> and select the <strong>tab-tidy-edge</strong> folder.</li>
+              <li>Click the puzzle icon in the toolbar and show Tab Tidy.</li>
+            </ol>
+          </div>
+
+          <div class="panel" id="panel-firefox" role="tabpanel" aria-labelledby="tab-firefox" hidden>
+            <p class="notice">
+              Firefox 139 or later. Firefox only keeps unsigned add-ons until it restarts, so you must load Tab Tidy
+              again after each restart.
+            </p>
+            <ol class="steps">
+              <li>Download <a href="https://github.com/NeerajFull/tab-tidy/releases/latest/download/tab-tidy-firefox.zip">tab-tidy-firefox.zip</a>. Do not unzip it.</li>
+              <li>
+                Open
+                <span class="copy"><code>about:debugging#/runtime/this-firefox</code><button type="button" data-copy="about:debugging#/runtime/this-firefox">Copy</button></span>
+                in a new tab.
+              </li>
+              <li>Click <strong>Load Temporary Add-on</strong> and select <strong>tab-tidy-firefox.zip</strong>.</li>
+            </ol>
+          </div>
+
+          <div class="update">
+            <h3>Update to a new version</h3>
+            <p>
+              Download the new zip. In Chrome or Edge, replace the files in your existing folder with the new ones, then
+              click the reload icon on the Tab Tidy card in the extensions page. Keep the same folder, so your settings,
+              rules and saved sessions stay.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap">
+          <h2>Privacy</h2>
+          <p class="sub">There is no Tab Tidy server.</p>
+          <ul class="privacy-list">
+            <li>Without an API key, nothing leaves your browser.</li>
+            <li>
+              With your own Anthropic API key, short tab titles, site paths and group names go straight from your browser
+              to Anthropic. Query strings are removed first.
+            </li>
+            <li>Your key, rules and saved sessions stay on your device. They are not synced.</li>
+          </ul>
+          <a href="privacy.html">Read the privacy policy</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <span>Tab Tidy is free and open source.</span>
+        <span>
+          <a href="https://github.com/NeerajFull/tab-tidy">Source code</a> ·
+          <a href="https://github.com/NeerajFull/tab-tidy/releases">All releases</a> ·
+          <a href="https://github.com/NeerajFull/tab-tidy/issues">Report a problem</a> ·
+          <a href="privacy.html">Privacy</a>
+        </span>
+      </div>
+    </footer>
+
+    <script>
+      const REPO = 'NeerajFull/tab-tidy';
+      const download = (browser) => `https://github.com/${REPO}/releases/latest/download/tab-tidy-${browser}.zip`;
+      const NAMES = { chrome: 'Chrome', edge: 'Edge', firefox: 'Firefox' };
+
+      // Edge also says "Chrome" in its user agent, so check Edge first.
+      const ua = navigator.userAgent;
+      const current = /Edg\//.test(ua) ? 'edge' : /Firefox\//.test(ua) ? 'firefox' : 'chrome';
+
+      document.getElementById('download').href = download(current);
+      document.getElementById('download-label').textContent = `Download for ${NAMES[current]}`;
+      const others = Object.keys(NAMES).filter((b) => b !== current);
+      document.getElementById('other-browsers').innerHTML = others
+        .map((b) => `<a href="${download(b)}">${NAMES[b]}</a>`)
+        .join(' and ');
+
+      const tabs = document.querySelectorAll('[role="tab"]');
+      function select(browser) {
+        for (const tab of tabs) {
+          const on = tab.id === `tab-${browser}`;
+          tab.setAttribute('aria-selected', String(on));
+          document.getElementById(tab.getAttribute('aria-controls')).hidden = !on;
+        }
+      }
+      for (const tab of tabs) tab.addEventListener('click', () => select(tab.id.replace('tab-', '')));
+      select(current);
+
+      for (const button of document.querySelectorAll('[data-copy]')) {
+        button.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText(button.dataset.copy);
+            button.textContent = 'Copied';
+          } catch {
+            button.textContent = 'Copy failed';
+          }
+          setTimeout(() => (button.textContent = 'Copy'), 1500);
+        });
+      }
+
+      fetch(`https://api.github.com/repos/${REPO}/releases/latest`)
+        .then((response) => (response.ok ? response.json() : null))
+        .then((release) => {
+          if (release?.tag_name) document.getElementById('version').textContent = `Version ${release.tag_name.replace(/^v/, '')} · Free`;
+        })
+        .catch(() => {});
+    </script>
+  </body>
+</html>
